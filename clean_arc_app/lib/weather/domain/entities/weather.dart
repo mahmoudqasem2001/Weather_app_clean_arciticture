@@ -4,10 +4,7 @@ class Weather {
   final String cityName;
   final String description;
   final double tempCelsius;
-  Weather({
-    required this.id,
-    required this.cityName,
-    required this.description,
-    required this.tempCelsius,
-  });
+
+  Weather(this.id, this.cityName, this.description, this.tempCelsius);
+  
 }
