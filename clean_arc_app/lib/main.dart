@@ -1,6 +1,16 @@
+import 'package:clean_arc_app/weather/data/data_source/remote_data_source.dart';
+import 'package:clean_arc_app/weather/data/repository/weather_repository.dart';
+import 'package:clean_arc_app/weather/domain/entities/weather.dart';
+import 'package:clean_arc_app/weather/domain/repository/base_weather_repository.dart';
+import 'package:clean_arc_app/weather/domain/usecases/get_weather_by_country.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  BaseRemoteDataSource baseRemoteDataSource = RemoteDataSource();
+  BaseWeatherRepository baseWeatherRepository =
+      WeatherRepository(baseRemoteDataSource);
+ Weather weather= await GetWeatherByCountry(baseWeatherRepository).execute("Palestine");
+
   runApp(const MyApp());
 }
 
